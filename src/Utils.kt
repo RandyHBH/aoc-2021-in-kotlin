@@ -9,6 +9,10 @@ fun readInput(name: String) = File("src", "$name.txt").readLines()
 
 fun readInputAsInt(name: String) = File("src", "$name.txt").readLines().map { it.toInt() }
 
+fun readInputAsPair(name: String) = File("src", "$name.txt").readLines()
+    .map { it.split(' ') }
+    .map { (a, b) -> Pair(a, b.toInt()) }
+
 /**
  * Converts string to md5 hash.
  */
