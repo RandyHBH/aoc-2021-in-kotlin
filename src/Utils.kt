@@ -7,11 +7,14 @@ import java.security.MessageDigest
  */
 fun readInput(name: String) = File("src", "$name.txt").readLines()
 
-fun readInputAsInt(name: String) = File("src", "$name.txt").readLines().map { it.toInt() }
+fun readInputAsInt(name: String) = readInput(name).map { it.toInt() }
 
-fun readInputAsPair(name: String) = File("src", "$name.txt").readLines()
-    .map { it.split(' ') }
-    .map { (a, b) -> Pair(a, b.toInt()) }
+fun readInputAsPair(name: String) =
+    readInput(name).map { it.split(' ') }.map { (a, b) -> Pair(a, b.toInt()) }
+
+fun readInputAsIntArray(name: String) =
+    readInput(name).map { it.toCharArray().toList() }.map { it.map(Character::getNumericValue) }
+
 
 /**
  * Converts string to md5 hash.
